@@ -10,6 +10,7 @@ export default function PropertyExpertsWeb() {
   const [scrolled, setScrolled] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeVenture, setActiveVenture] = useState(0);
+  const [logoSrc, setLogoSrc] = useState(peLogo);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY);
@@ -340,8 +341,9 @@ export default function PropertyExpertsWeb() {
           {/* Logo */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <img
-              src={peLogo}
+              src={logoSrc}
               alt="Property Experts"
+              onError={() => setLogoSrc('/favicon.svg')}
               style={{ height: 48, width: 'auto', display: 'block' }}
             />
             <div>
@@ -1266,8 +1268,9 @@ export default function PropertyExpertsWeb() {
           }}>
             <div>
               <img
-                src={peLogo}
+                src={logoSrc}
                 alt="Property Experts"
+                onError={() => setLogoSrc('/favicon.svg')}
                 style={{ height: 64, width: 'auto', display: 'block', marginBottom: 16 }}
               />
               <div className="display" style={{
