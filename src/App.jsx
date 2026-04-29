@@ -381,19 +381,14 @@ export default function PropertyExpertsWeb() {
           alignItems: 'center',
         }}>
           {/* Logo */}
-          <div className="mobile-brand" style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <div className="mobile-brand" style={{ display: 'flex', alignItems: 'center' }}>
             <img
               src={logoSrc}
               alt="Property Experts"
               onError={() => setLogoSrc('/favicon.svg')}
               className="mobile-brand-logo"
-              style={{ height: 48, width: 'auto', display: 'block' }}
+              style={{ height: 72, width: 'auto', display: 'block' }}
             />
-            <div className="mobile-brand-copy">
-              <div className="display mobile-brand-title" style={{ fontSize: 18, color: c.ink, fontWeight: 700, letterSpacing: '-0.5px', lineHeight: 1, textTransform: 'uppercase' }}>Property</div>
-              <div className="display underline-red mobile-brand-title" style={{ fontSize: 18, color: c.ink, fontWeight: 700, letterSpacing: '-0.5px', lineHeight: 1, textTransform: 'uppercase', marginTop: 2 }}>Experts</div>
-              <div className="mobile-only telugu-sans mobile-brand-tagline">మీ కష్టాన్ని వ్యర్థం కానివ్వం</div>
-            </div>
           </div>
 
           {/* Center nav */}
@@ -1317,20 +1312,6 @@ export default function PropertyExpertsWeb() {
                 onError={() => setLogoSrc('/favicon.svg')}
                 style={{ height: 64, width: 'auto', display: 'block', marginBottom: 16 }}
               />
-              <div className="display" style={{
-                fontSize: 32, fontWeight: 700,
-                letterSpacing: '-1px', textTransform: 'uppercase',
-                lineHeight: 1,
-              }}>
-                Property
-              </div>
-              <div className="display underline-red" style={{
-                fontSize: 32, fontWeight: 700,
-                letterSpacing: '-1px', textTransform: 'uppercase',
-                lineHeight: 1, marginTop: 4,
-              }}>
-                Experts
-              </div>
               <p style={{ 
                 marginTop: 24, fontSize: 14, lineHeight: 1.7,
                 color: '#ffffffaa', maxWidth: 320,
