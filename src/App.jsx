@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  ArrowRight, MapPin, Phone, MessageCircle, Mail, Menu, X, 
+import {
+  ArrowRight, MapPin, Phone, MessageCircle, Mail, Menu, X,
   ChevronRight, Play, Calendar, Shield, FileCheck, Compass,
   Ruler, TrendingUp, Award, Users, Star, ChevronDown, ArrowUpRight
 } from 'lucide-react';
+import peLogo from './assets/pe-logo.png';
 
 export default function PropertyExpertsWeb() {
   const [scrolled, setScrolled] = useState(0);
@@ -339,7 +340,7 @@ export default function PropertyExpertsWeb() {
           {/* Logo */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <img
-              src="/pe-logo.png"
+              src={peLogo}
               alt="Property Experts"
               style={{ height: 48, width: 'auto', display: 'block' }}
             />
@@ -1265,7 +1266,7 @@ export default function PropertyExpertsWeb() {
           }}>
             <div>
               <img
-                src="/pe-logo.png"
+                src={peLogo}
                 alt="Property Experts"
                 style={{ height: 64, width: 'auto', display: 'block', marginBottom: 16 }}
               />
