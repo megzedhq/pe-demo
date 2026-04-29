@@ -338,21 +338,11 @@ export default function PropertyExpertsWeb() {
         }}>
           {/* Logo */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <div style={{
-              width: 44, height: 44,
-              borderRadius: 8,
-              background: c.blue,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-              <svg width="26" height="26" viewBox="0 0 26 26">
-                <path d="M4 11 L13 4 L22 11 L22 22 L4 22 Z" fill={c.white} />
-                <rect x="11" y="14" width="4" height="8" fill={c.blue} />
-                <rect x="6" y="13" width="3" height="3" fill={c.yellow} />
-                <rect x="17" y="13" width="3" height="3" fill={c.yellow} />
-              </svg>
-            </div>
+            <img
+              src="https://megzed.com/uploads/pe.png"
+              alt="Property Experts"
+              style={{ height: 48, width: 'auto', display: 'block' }}
+            />
             <div>
               <div className="display" style={{ fontSize: 18, color: c.ink, fontWeight: 700, letterSpacing: '-0.5px', lineHeight: 1, textTransform: 'uppercase' }}>Property</div>
               <div className="display underline-red" style={{ fontSize: 18, color: c.ink, fontWeight: 700, letterSpacing: '-0.5px', lineHeight: 1, textTransform: 'uppercase', marginTop: 2 }}>Experts</div>
@@ -1274,14 +1264,19 @@ export default function PropertyExpertsWeb() {
             marginBottom: 80,
           }}>
             <div>
-              <div className="display" style={{ 
+              <img
+                src="https://megzed.com/uploads/pe.png"
+                alt="Property Experts"
+                style={{ height: 64, width: 'auto', display: 'block', marginBottom: 16 }}
+              />
+              <div className="display" style={{
                 fontSize: 32, fontWeight: 700,
                 letterSpacing: '-1px', textTransform: 'uppercase',
                 lineHeight: 1,
               }}>
                 Property
               </div>
-              <div className="display underline-red" style={{ 
+              <div className="display underline-red" style={{
                 fontSize: 32, fontWeight: 700,
                 letterSpacing: '-1px', textTransform: 'uppercase',
                 lineHeight: 1, marginTop: 4,
