@@ -381,7 +381,7 @@ export default function PropertyExpertsWeb() {
           alignItems: 'center',
         }}>
           {/* Logo */}
-          <div className="mobile-brand" style={{ display: 'flex', alignItems: 'center' }}>
+          <div className="mobile-brand" style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <img
               src={logoSrc}
               alt="Property Experts"
@@ -389,6 +389,29 @@ export default function PropertyExpertsWeb() {
               className="mobile-brand-logo"
               style={{ height: 72, width: 'auto', display: 'block' }}
             />
+            <div className="mobile-brand-copy mobile-only">
+              <div className="mobile-brand-title" style={{
+                fontFamily: 'Inter, sans-serif',
+                fontWeight: 800,
+                textTransform: 'uppercase',
+                lineHeight: 0.95,
+                fontSize: 24,
+                color: c.red,
+              }}>
+                <div>Property</div>
+                <div>Experts</div>
+              </div>
+              <div style={{
+                width: 102,
+                height: 5,
+                borderRadius: 999,
+                background: c.yellow,
+                margin: '8px 0 10px',
+              }} />
+              <div className="mobile-brand-tagline telugu-sans">
+                మీ కష్టార్జితం వృధా కానివ్వం
+              </div>
+            </div>
           </div>
 
           {/* Center nav */}
