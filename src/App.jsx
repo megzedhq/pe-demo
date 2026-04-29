@@ -303,19 +303,19 @@ export default function PropertyExpertsWeb() {
             justify-content: center !important;
           }
           .mobile-brand-title {
-            font-size: 28px !important;
-            line-height: 0.92 !important;
+            font-size: 22px !important;
+            line-height: 0.88 !important;
             color: ${c.red} !important;
-            letter-spacing: -0.3px !important;
+            letter-spacing: -0.2px !important;
           }
           .mobile-brand-tagline {
             display: inline-block !important;
-            margin-top: 6px !important;
-            padding: 6px 10px !important;
-            border-radius: 8px !important;
+            margin-top: 2px !important;
+            padding: 5px 8px !important;
+            border-radius: 7px !important;
             background: #1ea047 !important;
             color: #fff !important;
-            font-size: 12px !important;
+            font-size: 10px !important;
             font-weight: 700 !important;
             line-height: 1 !important;
             white-space: nowrap;
@@ -343,24 +343,25 @@ export default function PropertyExpertsWeb() {
             object-fit: contain;
           }
           .mobile-brand-title {
-            font-size: 52px !important;
-            line-height: 0.92 !important;
+            font-size: 30px !important;
+            line-height: 0.9 !important;
             color: ${c.red} !important;
-            letter-spacing: -0.5px !important;
+            letter-spacing: -0.3px !important;
           }
           .mobile-brand-copy {
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
+            gap: 6px !important;
           }
           .mobile-brand-tagline {
             display: inline-block !important;
-            margin-top: 10px !important;
-            padding: 10px 16px !important;
-            border-radius: 10px !important;
+            margin-top: 0 !important;
+            padding: 8px 12px !important;
+            border-radius: 8px !important;
             background: #1ea047 !important;
             color: #fff !important;
-            font-size: 15px !important;
+            font-size: 12px !important;
             font-weight: 700 !important;
             line-height: 1 !important;
           }
