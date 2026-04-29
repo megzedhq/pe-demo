@@ -339,7 +339,7 @@ export default function PropertyExpertsWeb() {
           {/* Logo */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <img
-              src="https://megzed.com/uploads/pe.png"
+              src="/pe-logo.png"
               alt="Property Experts"
               style={{ height: 48, width: 'auto', display: 'block' }}
             />
@@ -1265,7 +1265,7 @@ export default function PropertyExpertsWeb() {
           }}>
             <div>
               <img
-                src="https://megzed.com/uploads/pe.png"
+                src="/pe-logo.png"
                 alt="Property Experts"
                 style={{ height: 64, width: 'auto', display: 'block', marginBottom: 16 }}
               />
