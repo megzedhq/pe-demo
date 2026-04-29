@@ -281,6 +281,48 @@ export default function PropertyExpertsWeb() {
           animation: shimmer 3s ease-in-out infinite;
         }
 
+
+        @media (min-width: 901px) {
+          .mobile-brand {
+            gap: 12px !important;
+            align-items: center !important;
+          }
+          .mobile-brand-logo {
+            height: 72px !important;
+            width: 72px !important;
+            border-radius: 14px !important;
+            border: 1px solid #d8dee8 !important;
+            box-shadow: 0 2px 10px rgba(10, 22, 40, 0.08);
+            padding: 6px !important;
+            background: #fff !important;
+            object-fit: contain;
+          }
+          .mobile-brand-copy {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+          }
+          .mobile-brand-title {
+            font-size: 28px !important;
+            line-height: 0.92 !important;
+            color: ${c.red} !important;
+            letter-spacing: -0.3px !important;
+          }
+          .mobile-brand-tagline {
+            display: inline-block !important;
+            margin-top: 6px !important;
+            padding: 6px 10px !important;
+            border-radius: 8px !important;
+            background: #1ea047 !important;
+            color: #fff !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            line-height: 1 !important;
+            white-space: nowrap;
+          }
+          .mobile-only { display: none !important; }
+        }
+
         @media (max-width: 900px) {
           .desktop-only { display: none !important; }
           .mobile-nav-shell {
@@ -326,9 +368,7 @@ export default function PropertyExpertsWeb() {
             display: none !important;
           }
         }
-        @media (min-width: 901px) {
-          .mobile-only { display: none !important; }
-        }
+
       `}</style>
 
       <div className="grain" />
@@ -389,24 +429,24 @@ export default function PropertyExpertsWeb() {
               className="mobile-brand-logo"
               style={{ height: 72, width: 'auto', display: 'block' }}
             />
-            <div className="mobile-brand-copy mobile-only">
+            <div className="mobile-brand-copy">
               <div className="mobile-brand-title" style={{
                 fontFamily: 'Inter, sans-serif',
                 fontWeight: 800,
                 textTransform: 'uppercase',
                 lineHeight: 0.95,
-                fontSize: 24,
+                fontSize: 26,
                 color: c.red,
               }}>
                 <div>Property</div>
                 <div>Experts</div>
               </div>
               <div style={{
-                width: 102,
-                height: 5,
+                width: 84,
+                height: 4,
                 borderRadius: 999,
                 background: c.yellow,
-                margin: '8px 0 10px',
+                margin: '6px 0 8px',
               }} />
               <div className="mobile-brand-tagline telugu-sans">
                 మీ కష్టార్జితం వృధా కానివ్వం
@@ -682,7 +722,7 @@ export default function PropertyExpertsWeb() {
                     From
                   </div>
                   <div className="display" style={{ 
-                    fontSize: 24, color: c.ink, fontWeight: 700,
+                    fontSize: 26, color: c.ink, fontWeight: 700,
                     lineHeight: 1, marginTop: 2,
                   }}>
                     ₹5 Lakhs
@@ -887,7 +927,7 @@ export default function PropertyExpertsWeb() {
                     background: `linear-gradient(180deg, transparent, ${c.ink}d0)`,
                   }}>
                     <div className="display" style={{ 
-                      fontSize: 24, color: c.white, fontWeight: 500,
+                      fontSize: 26, color: c.white, fontWeight: 500,
                       letterSpacing: '-0.5px', lineHeight: 1.1,
                     }}>
                       {v.name}
@@ -1261,7 +1301,7 @@ export default function PropertyExpertsWeb() {
               alignSelf: 'start',
             }}>
               <div className="display" style={{ 
-                fontSize: 24, color: c.ink, fontWeight: 500,
+                fontSize: 26, color: c.ink, fontWeight: 500,
                 letterSpacing: '-0.5px', marginBottom: 8,
               }}>
                 Tell us about your search.
