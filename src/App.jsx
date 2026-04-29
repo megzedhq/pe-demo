@@ -283,6 +283,48 @@ export default function PropertyExpertsWeb() {
 
         @media (max-width: 900px) {
           .desktop-only { display: none !important; }
+          .mobile-nav-shell {
+            justify-content: center !important;
+          }
+          .mobile-brand {
+            gap: 12px !important;
+            align-items: center !important;
+          }
+          .mobile-brand-logo {
+            height: 100px !important;
+            width: 100px !important;
+            border-radius: 20px !important;
+            border: 1px solid #d8dee8 !important;
+            box-shadow: 0 2px 10px rgba(10, 22, 40, 0.08);
+            padding: 8px !important;
+            background: #fff !important;
+            object-fit: contain;
+          }
+          .mobile-brand-title {
+            font-size: 52px !important;
+            line-height: 0.92 !important;
+            color: ${c.red} !important;
+            letter-spacing: -0.5px !important;
+          }
+          .mobile-brand-copy {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+          }
+          .mobile-brand-tagline {
+            display: inline-block !important;
+            margin-top: 10px !important;
+            padding: 10px 16px !important;
+            border-radius: 10px !important;
+            background: #1ea047 !important;
+            color: #fff !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            line-height: 1 !important;
+          }
+          .mobile-right-controls {
+            display: none !important;
+          }
         }
         @media (min-width: 901px) {
           .mobile-only { display: none !important; }
@@ -331,7 +373,7 @@ export default function PropertyExpertsWeb() {
         transition: 'all 0.3s ease',
         padding: '20px 5%',
       }}>
-        <div style={{ 
+        <div className="mobile-nav-shell" style={{ 
           maxWidth: 1400, 
           margin: '0 auto',
           display: 'flex',
@@ -339,16 +381,18 @@ export default function PropertyExpertsWeb() {
           alignItems: 'center',
         }}>
           {/* Logo */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <div className="mobile-brand" style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <img
               src={logoSrc}
               alt="Property Experts"
               onError={() => setLogoSrc('/favicon.svg')}
+              className="mobile-brand-logo"
               style={{ height: 48, width: 'auto', display: 'block' }}
             />
-            <div>
-              <div className="display" style={{ fontSize: 18, color: c.ink, fontWeight: 700, letterSpacing: '-0.5px', lineHeight: 1, textTransform: 'uppercase' }}>Property</div>
-              <div className="display underline-red" style={{ fontSize: 18, color: c.ink, fontWeight: 700, letterSpacing: '-0.5px', lineHeight: 1, textTransform: 'uppercase', marginTop: 2 }}>Experts</div>
+            <div className="mobile-brand-copy">
+              <div className="display mobile-brand-title" style={{ fontSize: 18, color: c.ink, fontWeight: 700, letterSpacing: '-0.5px', lineHeight: 1, textTransform: 'uppercase' }}>Property</div>
+              <div className="display underline-red mobile-brand-title" style={{ fontSize: 18, color: c.ink, fontWeight: 700, letterSpacing: '-0.5px', lineHeight: 1, textTransform: 'uppercase', marginTop: 2 }}>Experts</div>
+              <div className="mobile-only telugu-sans mobile-brand-tagline">మీ కష్టాన్ని వ్యర్థం కానివ్వం</div>
             </div>
           </div>
 
@@ -372,7 +416,7 @@ export default function PropertyExpertsWeb() {
           </div>
 
           {/* Right CTA */}
-          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+          <div className="mobile-right-controls" style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
             <div className="desktop-only mono" style={{ 
               fontSize: 12, 
               color: c.muted,
