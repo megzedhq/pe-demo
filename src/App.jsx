@@ -18,6 +18,11 @@ export default function PropertyExpertsWeb() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   const c = {
     blue: '#1E5FAB',
     blueDeep: '#0D3D7A',
@@ -329,60 +334,158 @@ export default function PropertyExpertsWeb() {
 
         @media (max-width: 900px) {
           .desktop-only { display: none !important; }
+          nav.site-nav {
+            padding: 14px 5% !important;
+          }
           .mobile-nav-shell {
-            justify-content: center !important;
+            justify-content: space-between !important;
+            gap: 12px !important;
           }
           .mobile-brand {
-            gap: 12px !important;
-            align-items: stretch !important;
-            min-height: 96px;
+            gap: 10px !important;
+            align-items: center !important;
+            min-height: auto !important;
+            flex: 1 1 auto !important;
+            min-width: 0 !important;
           }
           .mobile-brand-logo {
-            height: auto !important;
-            width: 96px !important;
-            align-self: stretch !important;
-            border-radius: 18px !important;
+            height: 56px !important;
+            width: 56px !important;
+            align-self: center !important;
+            border-radius: 12px !important;
             border: 1px solid #d8dee8 !important;
-            box-shadow: 0 2px 10px rgba(10, 22, 40, 0.08);
-            padding: 8px !important;
+            box-shadow: 0 2px 8px rgba(10, 22, 40, 0.08);
+            padding: 6px !important;
             background: #fff !important;
             object-fit: contain;
+            flex-shrink: 0;
           }
           .mobile-brand-title {
-            font-size: 28px !important;
-            line-height: 0.9 !important;
+            font-size: 18px !important;
+            line-height: 0.95 !important;
             color: ${c.red} !important;
             letter-spacing: -0.3px !important;
           }
           .mobile-brand-copy {
             display: flex !important;
             flex-direction: column !important;
-            justify-content: space-between !important;
-            padding: 2px 0 !important;
+            justify-content: center !important;
+            gap: 4px !important;
+            padding: 0 !important;
+            min-width: 0;
           }
+          .mobile-brand-copy .brand-divider { display: none !important; }
           .mobile-brand-tagline {
             display: inline-block !important;
             align-self: flex-start !important;
             margin-top: 0 !important;
-            padding: 8px 12px !important;
-            border-radius: 8px !important;
+            padding: 4px 8px !important;
+            border-radius: 6px !important;
             background: #1ea047 !important;
             color: #fff !important;
-            font-size: 12px !important;
+            font-size: 10px !important;
             font-weight: 700 !important;
             line-height: 1 !important;
+            white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
           .mobile-right-controls {
-            display: none !important;
+            display: flex !important;
+            gap: 0 !important;
+            flex-shrink: 0 !important;
+          }
+          .mobile-menu-btn {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: ${c.ink};
+            color: ${c.white};
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px -4px rgba(10, 22, 40, 0.4);
+          }
+          .ticker-strip {
+            font-size: 10px !important;
+            letter-spacing: 1.5px !important;
+          }
+
+          /* Footer mobile */
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+            margin-bottom: 48px !important;
+          }
+          .footer-bottom {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 16px !important;
+          }
+          .footer-bottom-links {
+            flex-wrap: wrap;
+            gap: 16px !important;
+          }
+          footer.site-footer {
+            padding: 56px 5% 32px !important;
           }
         }
+        .mobile-menu-btn { display: none; }
+
+        .mobile-drawer {
+          position: fixed;
+          inset: 0;
+          z-index: 200;
+          background: rgba(10, 22, 40, 0.55);
+          backdrop-filter: blur(4px);
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.25s ease;
+        }
+        .mobile-drawer.open {
+          opacity: 1;
+          pointer-events: auto;
+        }
+        .mobile-drawer-panel {
+          position: absolute;
+          top: 0; right: 0; bottom: 0;
+          width: min(86%, 360px);
+          background: ${c.cream};
+          padding: 24px 24px 32px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          transform: translateX(100%);
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: -20px 0 60px -20px rgba(10, 22, 40, 0.4);
+        }
+        .mobile-drawer.open .mobile-drawer-panel {
+          transform: translateX(0);
+        }
+        .mobile-drawer-link {
+          padding: 14px 4px;
+          font-size: 16px;
+          font-weight: 600;
+          color: ${c.ink};
+          text-decoration: none;
+          border-bottom: 1px solid ${c.line};
+          letter-spacing: 0.3px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          transition: color 0.2s;
+        }
+        .mobile-drawer-link:hover { color: ${c.red}; }
 
       `}</style>
 
       <div className="grain" />
 
       {/* TOP TICKER STRIP */}
-      <div style={{ 
+      <div className="ticker-strip" style={{
         background: c.ink,
         color: c.white,
         padding: '8px 0',
@@ -411,12 +514,12 @@ export default function PropertyExpertsWeb() {
       </div>
 
       {/* NAV */}
-      <nav style={{ 
+      <nav className="site-nav" style={{
         position: 'sticky',
         top: 0,
         zIndex: 90,
-        background: scrolled > 100 ? `${c.cream}f5` : 'transparent',
-        backdropFilter: scrolled > 100 ? 'blur(20px)' : 'none',
+        background: scrolled > 100 ? `${c.cream}f5` : `${c.cream}e0`,
+        backdropFilter: scrolled > 100 ? 'blur(20px)' : 'blur(8px)',
         borderBottom: scrolled > 100 ? `1px solid ${c.line}` : '1px solid transparent',
         transition: 'all 0.3s ease',
         padding: '20px 5%',
@@ -449,7 +552,7 @@ export default function PropertyExpertsWeb() {
                 <div>Property</div>
                 <div>Experts</div>
               </div>
-              <div style={{
+              <div className="brand-divider" style={{
                 width: 84,
                 height: 4,
                 borderRadius: 999,
@@ -483,22 +586,98 @@ export default function PropertyExpertsWeb() {
 
           {/* Right CTA */}
           <div className="mobile-right-controls" style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-            <div className="desktop-only mono" style={{ 
-              fontSize: 12, 
+            <div className="desktop-only mono" style={{
+              fontSize: 12,
               color: c.muted,
               display: 'flex', alignItems: 'center', gap: 6,
             }}>
               <Phone size={12} /> +91 8233 992 339
             </div>
-            <button className="btn-primary">
+            <button className="btn-primary desktop-only">
               Book site visit <ArrowRight size={14} />
             </button>
-            <div className="mobile-only" onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen ? <X size={24} color={c.ink} /> : <Menu size={24} color={c.ink} />}
-            </div>
+            <button
+              className="mobile-menu-btn"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
           </div>
         </div>
       </nav>
+
+      {/* MOBILE DRAWER */}
+      <div
+        className={`mobile-drawer${menuOpen ? ' open' : ''}`}
+        onClick={() => setMenuOpen(false)}
+      >
+        <div className="mobile-drawer-panel" onClick={e => e.stopPropagation()}>
+          <div style={{
+            display: 'flex', justifyContent: 'space-between',
+            alignItems: 'center', marginBottom: 20,
+          }}>
+            <div className="mono" style={{
+              fontSize: 11, color: c.muted,
+              letterSpacing: '2px', textTransform: 'uppercase',
+            }}>
+              Menu
+            </div>
+            <button
+              aria-label="Close menu"
+              onClick={() => setMenuOpen(false)}
+              style={{
+                width: 40, height: 40, borderRadius: 10,
+                background: c.white, border: `1px solid ${c.line}`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                cursor: 'pointer', color: c.ink,
+              }}
+            >
+              <X size={20} />
+            </button>
+          </div>
+
+          {['Ventures', 'About', 'Why Us', 'Site Visit', 'Contact'].map((item, i) => (
+            <a
+              key={i}
+              href="#"
+              className="mobile-drawer-link"
+              onClick={() => setMenuOpen(false)}
+            >
+              {item}
+              <ChevronRight size={18} />
+            </a>
+          ))}
+
+          <button
+            className="btn-primary"
+            style={{ marginTop: 24, justifyContent: 'center' }}
+            onClick={() => setMenuOpen(false)}
+          >
+            Book site visit <ArrowRight size={14} />
+          </button>
+
+          <a
+            href="tel:+918233992339"
+            style={{
+              marginTop: 12,
+              padding: '14px 20px',
+              borderRadius: 999,
+              border: `1px solid ${c.ink}`,
+              color: c.ink,
+              textDecoration: 'none',
+              fontSize: 14,
+              fontWeight: 600,
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 8,
+            }}
+          >
+            <Phone size={14} /> +91 8233 992 339
+          </a>
+        </div>
+      </div>
 
       {/* HERO */}
       <section style={{ 
@@ -1362,15 +1541,15 @@ export default function PropertyExpertsWeb() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ 
-        background: c.ink, 
-        color: c.white, 
+      <footer className="site-footer" style={{
+        background: c.ink,
+        color: c.white,
         padding: '80px 5% 40px',
         position: 'relative',
       }}>
         <div style={{ maxWidth: 1400, margin: '0 auto' }}>
           {/* Top */}
-          <div style={{ 
+          <div className="footer-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'minmax(0, 1.5fr) repeat(3, minmax(0, 1fr))',
             gap: 60,
@@ -1466,20 +1645,21 @@ export default function PropertyExpertsWeb() {
 
 
           {/* Bottom row */}
-          <div style={{ 
+          <div className="footer-bottom" style={{
             paddingTop: 40,
+            borderTop: `1px solid #ffffff15`,
             display: 'flex',
             justifyContent: 'space-between',
             flexWrap: 'wrap',
             gap: 20,
           }}>
-            <div className="mono" style={{ 
+            <div className="mono" style={{
               fontSize: 11, color: '#ffffff80',
               letterSpacing: '1.5px', textTransform: 'uppercase',
             }}>
               © 2014–2026 Property Experts · All rights reserved
             </div>
-            <div style={{ display: 'flex', gap: 24 }}>
+            <div className="footer-bottom-links" style={{ display: 'flex', gap: 24 }}>
               {['Privacy', 'Terms', 'Cookies', 'Sitemap'].map((item, i) => (
                 <a key={i} href="#" className="mono link-hover" style={{ 
                   fontSize: 11, color: '#ffffff80', textDecoration: 'none',
